@@ -1,0 +1,29 @@
+GET http://localhost:4000/api
+
+###
+GET http://localhost:4000/api/error
+
+###
+GET http://localhost:4000/api/rs
+
+###
+POST http://localhost:4000/api
+Content-Type: application/json
+
+{
+    "textOrUrlManga": "https://docln.net/truyen/9167-be-la-mot-youtuber-ao-nhung-vi-lo-quen-tat-stream-nen-be-thanh-huyen-thoai-luon/c79085-chuong-thu-hai-quen-tat-mat-tieu-roi-phan-thu-hai", 
+    "voice": "banmai",
+    "speed": 2,
+    "urlData":"docln",
+    "durationsTs": 1000,
+    "pa":"huydz"
+}
+
+###
+DELETE  https://api.heroku.com/apps/texttospeed/dynos
+Content-Type: application/json
+Accept: application/vnd.heroku+json; version=3
+Authorization: Bearer 6cdd6ad1-6b65-4210-8a98-f21207b7ccc1
+
+###
+GET http://localhost:4000/download/uploads
