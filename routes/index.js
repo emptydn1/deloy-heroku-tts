@@ -107,7 +107,8 @@ router.post("/", async (req, res) => {
   try {
     cacheTime = Date.now();
     const { textOrUrlManga, voice, speed, urlData, durationsTs, pa } = req.body;
-    console.log(textOrUrlManga, voice, speed, urlData, durationsTs);
+    console.log(textOrUrlManga, voice, speed, urlData, durationsTs, pa);
+
     if (pa === process.env.PW) {
       let count_api = await readFileGetValue(),
         $,

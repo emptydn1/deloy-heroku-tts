@@ -17,7 +17,7 @@ const srtRouter = require("./routes/srt");
   try {
     const handler = setInterval(() => {
       axios
-        .get("https://texttospeed.herokuapp.com/api/vlluon")
+        .get("https://ttss1.herokuapp.com/api/vlluon")
         .then((re) => console.log("wake", re.data));
     }, 25 * 60 * 1000);
   } catch (err) {
