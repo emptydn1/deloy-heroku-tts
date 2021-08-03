@@ -21,7 +21,7 @@ const srtRouter = require("./routes/srt");
         .then((re) => console.log("wake", re.data));
     }, 25 * 60 * 1000);
   } catch (err) {
-    console.log("Error occured: retrying...................");
+    console.log("Error occured: retrying...............");
     clearInterval(handler);
     return setTimeout(() => wake(), 10000);
   }
