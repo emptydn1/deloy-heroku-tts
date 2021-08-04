@@ -32,7 +32,6 @@ router.post("/", uploadMiddelware.single("file"), async (req, res, next) => {
           }
           //file written successfully
         });
-        clearInterval(handler);
         console.log("torrent downsload finished");
       });
     });
