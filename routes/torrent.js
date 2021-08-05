@@ -6,7 +6,13 @@ const path = require("path");
 const fs = require("fs");
 
 router.post("/", uploadMiddelware.single("file"), async (req, res, next) => {
+  let handler;
   try {
+    handler = setInterval(() => {
+      axios
+        .get(`https://${process.env.DM}.herokuapp.com/api/vlluon`)
+        .then((re) => console.log("wake", re.data));
+    }, 25 * 60 * 1000);
     let pathname = path.join(__dirname, "..", "public");
     const client = new WebTorrent();
     console.log("waiting....................");
@@ -31,6 +37,7 @@ router.post("/", uploadMiddelware.single("file"), async (req, res, next) => {
     });
     res.json(req.file.filename);
   } catch {
+    clearInterval(handler);
     console.log("torrent clear");
     next();
   }

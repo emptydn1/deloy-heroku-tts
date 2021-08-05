@@ -13,19 +13,19 @@ const downloadRouter = require("./routes/download");
 const delRouter = require("./routes/del");
 const srtRouter = require("./routes/srt");
 
-(function wake() {
-  try {
-    const handler = setInterval(() => {
-      axios
-        .get("https://ttss1.herokuapp.com/api/vlluon")
-        .then((re) => console.log("wake", re.data));
-    }, 25 * 60 * 1000);
-  } catch (err) {
-    console.log("Error occured: retrying...............");
-    clearInterval(handler);
-    return setTimeout(() => wake(), 10000);
-  }
-})();
+// (function wake() {
+//   try {
+//     const handler = setInterval(() => {
+//       axios
+//         .get("https://ttss1.herokuapp.com/api/vlluon")
+//         .then((re) => console.log("wake", re.data));
+//     }, 25 * 60 * 1000);
+//   } catch (err) {
+//     console.log("Error occured: retrying...............");
+//     clearInterval(handler);
+//     return setTimeout(() => wake(), 10000);
+//   }
+// })();
 
 app.use(cors());
 app.use(morgan("dev"));
