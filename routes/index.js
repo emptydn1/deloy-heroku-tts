@@ -101,7 +101,6 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  let handler;
   if (cacheTime && cacheTime > Date.now() - 30 * 1000) {
     return res.send("wait");
   }
@@ -111,13 +110,6 @@ router.post("/", async (req, res) => {
     console.log(textOrUrlManga, voice, speed, urlData, durationsTs, pa);
 
     if (pa === process.env.PW) {
-      //start handler
-      handler = setInterval(() => {
-        axios
-          .get(`https://${process.env.domain}.herokuapp.com/api/vlluon`)
-          .then((re) => console.log("wake", re.data));
-      }, 25 * 60 * 1000);
-      //end-handler
 
       let count_api = await readFileGetValue(),
         $,
@@ -397,7 +389,6 @@ router.post("/", async (req, res) => {
       await sleep2(2000);
 
       console.log("ok");
-      clearInterval(handler);
       fs.readdir(path.join(__dirname, "../utils/file"), (err, files) => {
         if (err) throw err;
 
@@ -449,7 +440,6 @@ router.post("/", async (req, res) => {
     }
   } catch {
     console.log("Error occured: retrying...............");
-    clearInterval(handler);
     next();
   }
 });
