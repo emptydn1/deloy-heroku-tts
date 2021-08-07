@@ -108,7 +108,7 @@ router.post("/", async (req, res) => {
   try {
     cacheTime = Date.now();
     const { textOrUrlManga, voice, speed, urlData, durationsTs, pa } = req.body;
-    console.log(textOrUrlManga, voice, speed, urlData, durationsTs, pa);
+    // console.log(textOrUrlManga, voice, speed, urlData, durationsTs, pa);
 
     if (pa === process.env.PW) {
       let count_api = await readFileGetValue(),
@@ -153,7 +153,7 @@ router.post("/", async (req, res) => {
       }
 
       const handleContent = (e, index, querySelector) => {
-        if (str.length < 1500) {
+        if (str.length < 4500) {
           str += e + " ";
           if (querySelector.length - 1 === index) {
             strArr.push(str);
@@ -198,8 +198,9 @@ router.post("/", async (req, res) => {
       let totalStrArr = strArr.reduce((x, y) => {
         return x + y.length;
       }, 0);
+
       console.table({
-        textOrUrlManga: TTS.textOrUrlManga,
+        // textOrUrlManga: TTS.textOrUrlManga,
         voice: TTS.voice,
         speed: TTS.speed,
         urlData: TTS.urlData,
@@ -207,7 +208,9 @@ router.post("/", async (req, res) => {
         API: TTS.API.length,
         count_api,
         strArr: strArr.length,
+        LastArr: strArr[strArr.length - 1],
         totalStrArr: totalStrArr,
+        text: textOrUrlManga.length,
       });
 
       for (let x in strArr) {
