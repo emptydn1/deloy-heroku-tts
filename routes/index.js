@@ -50,6 +50,7 @@ router.get("/rs", async (req, res) => {
 });
 
 router.get("/vlluon", async (req, res) => {
+  console.log("vlluon");
   res.send("vlluon");
 });
 
@@ -110,7 +111,6 @@ router.post("/", async (req, res) => {
     console.log(textOrUrlManga, voice, speed, urlData, durationsTs, pa);
 
     if (pa === process.env.PW) {
-
       let count_api = await readFileGetValue(),
         $,
         html,
