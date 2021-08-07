@@ -37,7 +37,7 @@ app.use(
 );
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false, limit: "20mb" }));
+app.use(express.urlencoded({ extended: false, limit: "5mb" }));
 
 //routes
 app.use("/api", indexRouter);
