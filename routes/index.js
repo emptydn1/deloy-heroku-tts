@@ -153,7 +153,7 @@ router.post("/", async (req, res) => {
       }
 
       const handleContent = (e, index, querySelector) => {
-        if (str.length < 4500) {
+        if (str.length < 3500) {
           str += e + " ";
           if (querySelector.length - 1 === index) {
             strArr.push(str);
