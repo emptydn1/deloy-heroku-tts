@@ -109,7 +109,7 @@ router.post("/", async (req, res) => {
     cacheTime = Date.now();
     const { textOrUrlManga, voice, speed, urlData, durationsTs, pa } = req.body;
     // console.log(textOrUrlManga, voice, speed, urlData, durationsTs, pa);
-    
+
     if (pa === process.env.PW) {
       let count_api = await readFileGetValue(),
         $,
@@ -208,7 +208,7 @@ router.post("/", async (req, res) => {
         API: TTS.API.length,
         count_api,
         strArr: strArr.length,
-        LastArr: strArr[3],
+        LastArr: strArr[strArr.length - 1],
         totalStrArr: totalStrArr,
         text: textOrUrlManga.length,
       });
