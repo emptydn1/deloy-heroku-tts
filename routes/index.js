@@ -389,7 +389,7 @@ router.post("/", async (req, res) => {
         }
       );
 
-      await sleep2(10000);
+      await sleep2(15000);
 
       console.log("ok");
       fs.readdir(path.join(__dirname, "../utils/file"), (err, files) => {
